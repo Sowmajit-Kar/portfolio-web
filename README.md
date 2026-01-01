@@ -70,4 +70,4 @@ Plaintext
 ├── tailwind.config.js
 └── vite.config.js
 #also a demo video is given how exactly it is done
-<video controls src="portfolio_recording.mp4" title="Title"></video>
+<video controls src="D:\portfolio-project\public\projects\portfolio_recording.mp4" title="Title"></video>
