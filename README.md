@@ -70,4 +70,8 @@ Plaintext
 ├── tailwind.config.js
 └── vite.config.js
 #also a demo video is given how exactly it is done
-<video controls src="D:\portfolio-project\public\projects\portfolio_recording.mp4" title="Title"></video>
+<div align="center">
+  <video src="D:\portfolio-project\public\projects\portfolio_recording.mp4" width="100%" controls muted autoplay loop>
+    Your browser does not support the video tag.
+  </video>
+</div>
