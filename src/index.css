@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-border: hsl(var(--border));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-card: hsl(var(--card));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  /* Animation Variables */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-subtle: pulse-subtle 4s ease-in-out infinite;
+  --animate-fade-in: fade-in 0.7s ease-out forwards;
+  --animate-fade-in-delay-1: fade-in 0.7s ease-out 0.2s forwards;
+  --animate-fade-in-delay-2: fade-in 0.7s ease-out 0.4s forwards;
+  --animate-fade-in-delay-3: fade-in 0.7s ease-out 0.6s forwards;
+  --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards;
+  --animate-meteor: meteor 5s linear infinite;
+
+  /* Keyframe Definitions */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes pulse-subtle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(0.98); }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes meteor {
+    0% { transform: rotate(215deg) translateX(0); opacity: 1; }
+    70% { opacity: 1; }
+    100% { transform: rotate(215deg) translateX(-500px); opacity: 0; }
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --border: 217.2 32.6% 17.5%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+  }
+
+*{
+  @apply border-border;
+}
+html{
+  @apply scroll-smooth;
+
+}
+body{
+   @apply bg-background text-foreground transition-colors duration-300;
+   font-feature-settings: "rlig" 1,"calt" 1;
+
+}
+
+
+
+
+
+
+}
+
+@layer utilities {
+  /* Custom Container Utility */
+  .container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+
+  /* Responsive Max-Widths for Container */
+  @media (min-width: 640px) { .container { max-width: 640px; } }
+  @media (min-width: 768px) { .container { max-width: 768px; } }
+  @media (min-width: 1024px) { .container { max-width: 1024px; } }
+  @media (min-width: 1280px) { .container { max-width: 1280px; } }
+  @media (min-width: 1400px) { .container { max-width: 1400px; } }
+}
+
+@utility text-glow{
+  @apply relative;
+  text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
+ 
+}
+
+@utility card-hover{
+@apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
+
+ 
+
+
+}
+
+@utility gradient-border{
+@apply relative rounded-md;
+background: linear-gradient(to right,hsl(var(--card)), hsl(var(--card)));
+background-clip:padding-box;
+border:1px solid transport;
+
+ 
+
+
+}
+/* 
+@utility cosmic-button{
+  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium
+       transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
+       hover:scale-105 active:scale-95;
+
+
+} */
+@layer components {
+  .cosmic-button {
+    @apply relative px-6 py-3 rounded-full font-bold text-white transition-all duration-300 
+           bg-gradient-to-r from-purple-600 via-pink-500 to-blue-500 
+           hover:scale-105 hover:shadow-[0_0_20px_rgba(168,85,247,0.5)]
+           active:scale-95 flex items-center justify-center gap-2;
+    background-size: 200% auto;
+    animation: cosmic-shift 3s linear infinite;
+  }
+
+  /* Fix for the "cosmic-color" text gradient */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-400 to-blue-400;
+  }
+}
+
+@keyframes cosmic-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@utility star{
+   @apply absolute rounded-full bg-white;
+   box-shadow:0 0 10px 2px rgba(255, 255, 255, 0.4)
+
+
+
+}
+
+
+@utility meteor{
+   @apply absolute bg-linear-to-r from-white to-transparent rounded-full;
+   box-shadow: 0 0 10px 2px rgba(255, 255,255,0.3);
+
+
+
+}
+
+
+#root{
+  max-width: 100%;
+  margin: 0 auto;
+  padding:0;
+  text-align:center;
+
+
+
+
+}
+
+
+
