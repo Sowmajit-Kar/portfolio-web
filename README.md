@@ -55,7 +55,7 @@ Make sure you have [Node.js](https://nodejs.org/) installed (v18 or higher recom
 1. **Clone the repository:**
    ```bash
    git clone [https://github.com/YourUsername/your-repo-name.git](https://github.com/YourUsername/your-repo-name.git)
-
+```
 📁 Project Structure
 Plaintext
 
@@ -69,6 +69,8 @@ Plaintext
 ├── index.html       # HTML Template
 ├── tailwind.config.js
 └── vite.config.js
+
+```
 #also a demo video is given how exactly it is done
 <div align="center">
   <video src="D:\portfolio-project\public\projects\portfolio_recording.mp4" width="100%" controls muted autoplay loop>
