@@ -17,16 +17,6 @@ A modern, high-performance developer portfolio showcasing real-world projects in
 
 ---
 
-## ✨ Flagship Showcases
-
-1. **ChronoCloud**: AI-based optical flow frame interpolation for geostationary satellite telemetry (GOES/Himawari/INSAT) for storm and flood tracking.
-2. **CampusCart**: Full Stack student e-commerce & rental marketplace built with React, Node.js, Express, MongoDB, and college email verification.
-3. **ResearchMIND AI**: AI research assistant analyzing complex research PDFs to extract deep insights, flashcards, and Q&A using Gemini API and LLMs.
-4. **DeepFake Forensic Detection**: Deep CNN computer vision model detecting and classifying video manipulation artifacts.
-5. **Scriptoria Studio**: Autonomous multi-agent blog and research synthesis platform using CrewAI.
-6. **Job Aggregation Engine**: Dynamic job searching platform with Flask and web scraping pipelines.
-
----
 
 ## 🚀 Getting Started Locally
 
