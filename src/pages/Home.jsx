@@ -8,6 +8,7 @@ import { ProjectsSection } from "../components/ProjectsSection";
 import { ContactSection } from "../components/ContactSection";
 import { Footer } from "../components/Footer";
 import { InteractiveTerminal } from "../components/InteractiveTerminal";
+import { MobileBottomNav } from "../components/MobileBottomNav";
 
 const VALID_TABS = ["home", "projects", "skills", "about", "contact"];
 
@@ -55,8 +56,8 @@ export const Home = () => {
         </main>
       ) : (
         <>
-          {/* Focused Tab View Area (No clashing duplicate bars!) */}
-          <main className="relative z-10 flex-1 pt-14 sm:pt-16">
+          {/* Focused Tab View Area with mobile-bottom-nav clearance */}
+          <main className="relative z-10 flex-1 pt-14 sm:pt-16 pb-20 md:pb-0">
             <div key={activeTab} className="animate-fade-in">
               {activeTab === "home" && <HeroSection onNavigate={handleTabChange} />}
               {activeTab === "projects" && <ProjectsSection />}
@@ -67,6 +68,9 @@ export const Home = () => {
           </main>
 
           <Footer onNavigate={handleTabChange} />
+
+          {/* Mobile Bottom Tab Bar (1-Thumb Navigation for <768px screens) */}
+          <MobileBottomNav activeTab={activeTab} onSelectTab={handleTabChange} />
         </>
       )}
     </div>

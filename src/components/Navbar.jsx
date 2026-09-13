@@ -53,12 +53,12 @@ export const Navbar = ({
         {/* Left: Brand Identity */}
         <button
           onClick={() => onSelectTab?.("home")}
-          className="flex items-center gap-2 group text-left cursor-pointer shrink-0"
+          className="flex items-center gap-1.5 sm:gap-2 group text-left cursor-pointer shrink-0"
         >
-          <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
-            <TerminalIcon size={17} />
+          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+            <TerminalIcon size={15} />
           </div>
-          <span className="text-base font-bold text-foreground tracking-tight">
+          <span className="text-sm sm:text-base font-bold text-foreground tracking-tight">
             Sowmajit<span className="text-primary">.dev</span>
           </span>
           <span className="hidden xl:inline-flex text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-primary/10 text-primary font-mono font-semibold border border-primary/20">
@@ -104,35 +104,35 @@ export const Navbar = ({
           </div>
         )}
 
-        {/* Right: Controls (CLI Mode Toggle, GitHub, Theme Toggle) */}
-        <div className="flex items-center gap-2 shrink-0">
+        {/* Right: Controls (CLI Mode Toggle, GitHub, Theme Toggle, Menu) */}
+        <div className="flex items-center gap-1 sm:gap-2 shrink-0">
           {/* CLI / GUI Mode Switcher Pill */}
           {onToggleMode && (
-            <div className="flex items-center p-0.5 sm:p-1 rounded-full bg-secondary/80 border border-border text-xs font-mono">
+            <div className="flex items-center p-0.5 rounded-full bg-secondary/80 border border-border text-xs font-mono">
               <button
                 onClick={() => onToggleMode("gui")}
                 className={cn(
-                  "flex items-center gap-1 px-2.5 sm:px-3 py-1 rounded-full font-semibold transition-all cursor-pointer text-[11px] sm:text-xs",
+                  "flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full font-semibold transition-all cursor-pointer text-[10px] sm:text-xs",
                   activeMode === "gui"
                     ? "bg-primary text-primary-foreground shadow-sm"
                     : "text-muted-foreground hover:text-foreground"
                 )}
                 aria-label="Switch to GUI Mode"
               >
-                <Layout size={12} />
+                <Layout size={11} />
                 <span>GUI</span>
               </button>
               <button
                 onClick={() => onToggleMode("terminal")}
                 className={cn(
-                  "flex items-center gap-1 px-2.5 sm:px-3 py-1 rounded-full font-semibold transition-all cursor-pointer text-[11px] sm:text-xs",
+                  "flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full font-semibold transition-all cursor-pointer text-[10px] sm:text-xs",
                   activeMode === "terminal"
                     ? "bg-primary text-primary-foreground shadow-sm"
                     : "text-muted-foreground hover:text-foreground"
                 )}
                 aria-label="Switch to Terminal Mode"
               >
-                <TerminalIcon size={12} />
+                <TerminalIcon size={11} />
                 <span>CLI &gt;_</span>
               </button>
             </div>
@@ -144,12 +144,12 @@ export const Navbar = ({
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub Profile"
-            className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors hidden sm:inline-flex"
+            className="p-1.5 sm:p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors hidden sm:inline-flex"
           >
             <Github size={17} />
           </a>
 
-          {/* Cleanly Integrated Theme Toggle (No floating overlap!) */}
+          {/* Cleanly Integrated Theme Toggle */}
           <div className="flex items-center">
             <ThemeToggle />
           </div>
@@ -157,10 +157,10 @@ export const Navbar = ({
           {/* Mobile Drawer Hamburger Button */}
           <button
             onClick={() => setIsMenuOpen((prev) => !prev)}
-            className="p-2 text-foreground md:hidden rounded-lg hover:bg-secondary cursor-pointer"
+            className="p-1.5 sm:p-2 text-foreground md:hidden rounded-lg hover:bg-secondary cursor-pointer"
             aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
           >
-            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            {isMenuOpen ? <X size={19} /> : <Menu size={19} />}
           </button>
         </div>
 

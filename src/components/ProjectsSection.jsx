@@ -26,23 +26,23 @@ export const ProjectsSection = () => {
   const matchesFilter = (category) => activeFilter === "all" || activeFilter === category;
 
   return (
-    <section id="projects" className="py-24 px-4 relative">
+    <section id="projects" className="py-16 sm:py-24 px-3 sm:px-4 relative">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900/5 dark:bg-zinc-900/80 border border-zinc-300/80 dark:border-zinc-800 text-xs font-mono text-violet-700 dark:text-violet-400 mb-2.5 font-bold">
+        <div className="text-center mb-8 sm:mb-10">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-zinc-900/5 dark:bg-zinc-900/80 border border-zinc-300/80 dark:border-zinc-800 text-[11px] sm:text-xs font-mono text-violet-700 dark:text-violet-400 mb-2.5 font-bold">
             <Activity size={12} />
             <span>// 02. INTERACTIVE SYSTEMS SHOWCASE</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-foreground">
+          <h2 className="text-xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-foreground">
             Flagship <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-700 via-indigo-600 to-cyan-600 dark:from-violet-400 dark:via-indigo-300 dark:to-cyan-400">Architectural Bento Grid</span>
           </h2>
-          <p className="text-muted-foreground mt-2 max-w-2xl mx-auto text-sm sm:text-base font-normal leading-relaxed">
+          <p className="text-muted-foreground mt-2 max-w-2xl mx-auto text-xs sm:text-base font-normal leading-relaxed">
             Engineered systems with live telemetry controls, temporal model sliders, multi-agent orchestration, and reactive architecture.
           </p>
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex flex-wrap justify-center gap-2.5 mb-10">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-2.5 mb-8 sm:mb-10">
           {filters.map((f) => {
             const Icon = f.icon;
             const isActive = activeFilter === f.id;
@@ -51,13 +51,13 @@ export const ProjectsSection = () => {
                 key={f.id}
                 onClick={() => setActiveFilter(f.id)}
                 className={cn(
-                  "inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 cursor-pointer border",
+                  "inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 cursor-pointer border",
                   isActive
                     ? "bg-primary text-primary-foreground border-primary shadow-md scale-105"
                     : "bg-card/70 text-muted-foreground hover:text-foreground border-border hover:border-primary/40 hover:bg-card"
                 )}
               >
-                <Icon size={14} />
+                <Icon size={13} />
                 <span>{f.label}</span>
               </button>
             );
@@ -65,10 +65,10 @@ export const ProjectsSection = () => {
         </div>
 
         {/* Asymmetrical Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {/* ================= CARD 1: CHRONOCLOUD (LARGE HERO BENTO) ================= */}
           {matchesFilter("aiml") && (
-            <div className="col-span-1 md:col-span-2 lg:col-span-2 bg-card/90 backdrop-blur-md rounded-3xl p-6 sm:p-7 border border-border/90 shadow-xl flex flex-col justify-between hover:border-primary/50 transition-all group">
+            <div className="col-span-1 md:col-span-2 lg:col-span-2 bg-card/90 backdrop-blur-md rounded-2xl sm:rounded-3xl p-4.5 sm:p-7 border border-border/90 shadow-xl flex flex-col justify-between hover:border-primary/50 transition-all group">
               <div>
                 <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
                   <div className="flex items-center gap-2">
@@ -122,18 +122,18 @@ export const ProjectsSection = () => {
                   />
 
                   {/* Live SVG Waveform / Metrics Bar */}
-                  <div className="grid grid-cols-3 gap-3 text-center pt-1">
-                    <div className="p-2.5 rounded-xl bg-card border border-border/60">
-                      <span className="text-[10px] uppercase font-mono text-muted-foreground block">Peak PSNR</span>
-                      <span className="text-base sm:text-lg font-extrabold text-violet-400 font-mono">{psnr}</span>
+                  <div className="grid grid-cols-3 gap-1.5 sm:gap-3 text-center pt-1">
+                    <div className="p-2 sm:p-2.5 rounded-xl bg-card border border-border/60">
+                      <span className="text-[9px] sm:text-[10px] uppercase font-mono text-muted-foreground block truncate">PSNR</span>
+                      <span className="text-sm sm:text-lg font-extrabold text-violet-400 font-mono">{psnr}</span>
                     </div>
-                    <div className="p-2.5 rounded-xl bg-card border border-border/60">
-                      <span className="text-[10px] uppercase font-mono text-muted-foreground block">SSIM Index</span>
-                      <span className="text-base sm:text-lg font-extrabold text-cyan-400 font-mono">{ssim}</span>
+                    <div className="p-2 sm:p-2.5 rounded-xl bg-card border border-border/60">
+                      <span className="text-[9px] sm:text-[10px] uppercase font-mono text-muted-foreground block truncate">SSIM</span>
+                      <span className="text-sm sm:text-lg font-extrabold text-cyan-400 font-mono">{ssim}</span>
                     </div>
-                    <div className="p-2.5 rounded-xl bg-card border border-border/60">
-                      <span className="text-[10px] uppercase font-mono text-muted-foreground block">Latency / Frame</span>
-                      <span className="text-base sm:text-lg font-extrabold text-emerald-400 font-mono">{latency}</span>
+                    <div className="p-2 sm:p-2.5 rounded-xl bg-card border border-border/60">
+                      <span className="text-[9px] sm:text-[10px] uppercase font-mono text-muted-foreground block truncate">Latency</span>
+                      <span className="text-sm sm:text-lg font-extrabold text-emerald-400 font-mono">{latency}</span>
                     </div>
                   </div>
                 </div>

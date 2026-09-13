@@ -24,22 +24,22 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-4 relative bg-secondary/30">
+    <section id="contact" className="py-16 sm:py-24 px-3 sm:px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
-        <div className="text-center font-mono text-xs uppercase tracking-widest text-violet-700 dark:text-violet-400 font-bold mb-2">
+        <div className="text-center font-mono text-[11px] sm:text-xs uppercase tracking-widest text-violet-700 dark:text-violet-400 font-bold mb-2">
           // 04. COLLABORATION &amp; INQUIRIES
         </div>
-        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight mb-3 text-center text-foreground">
+        <h2 className="text-xl sm:text-3xl font-semibold tracking-tight mb-3 text-center text-foreground">
           Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-400 dark:to-indigo-400">Touch</span>
         </h2>
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto text-sm sm:text-base font-normal leading-relaxed">
+        <p className="text-center text-muted-foreground mb-8 sm:mb-12 max-w-2xl mx-auto text-xs sm:text-base font-normal leading-relaxed">
           Have an AI/ML research initiative, high-throughput web project, or engineering role in mind? Let's build together.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 items-start">
           {/* Left Column: Direct Contact Details */}
           <div className="space-y-6">
-            <div className="bg-card/70 backdrop-blur-sm p-6 rounded-2xl border border-border space-y-6">
+            <div className="bg-card/70 backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-border space-y-5 sm:space-y-6">
               <h3 className="text-lg font-bold text-foreground flex items-center gap-2">
                 <MessageSquare className="h-5 w-5 text-primary" /> Direct Channels
               </h3>
@@ -118,8 +118,8 @@ export const ContactSection = () => {
           </div>
 
           {/* Right Column: Contact Form */}
-          <div className="bg-card/90 backdrop-blur-md p-8 rounded-2xl shadow-sm border border-border">
-            <h3 className="text-2xl font-bold mb-2 text-foreground">Send a Message</h3>
+          <div className="bg-card/90 backdrop-blur-md p-5 sm:p-8 rounded-2xl shadow-sm border border-border">
+            <h3 className="text-xl sm:text-2xl font-bold mb-2 text-foreground">Send a Message</h3>
             <p className="text-xs sm:text-sm text-muted-foreground mb-6">
               Drop a note and I will respond to you promptly.
             </p>
@@ -156,7 +156,7 @@ export const ContactSection = () => {
                     name="name"
                     value={formState.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-2.5 rounded-xl border border-input bg-background/80 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                    className="w-full px-4 py-2.5 rounded-xl border border-input bg-background/80 text-foreground text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary transition-all"
                     placeholder="e.g. Alex Morgan"
                     required
                   />
@@ -172,7 +172,7 @@ export const ContactSection = () => {
                     name="email"
                     value={formState.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-2.5 rounded-xl border border-input bg-background/80 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                    className="w-full px-4 py-2.5 rounded-xl border border-input bg-background/80 text-foreground text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary transition-all"
                     placeholder="alex@example.com"
                     required
                   />
@@ -188,7 +188,7 @@ export const ContactSection = () => {
                     rows="4"
                     value={formState.message}
                     onChange={handleChange}
-                    className="w-full px-4 py-2.5 rounded-xl border border-input bg-background/80 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary transition-all resize-none"
+                    className="w-full px-4 py-2.5 rounded-xl border border-input bg-background/80 text-foreground text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary transition-all resize-none"
                     placeholder="Tell me about your AI/ML or web project..."
                     required
                   />

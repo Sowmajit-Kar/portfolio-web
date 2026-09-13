@@ -45,20 +45,20 @@ export const SkillsSection = () => {
   );
 
   return (
-    <section id="skills" className="py-24 px-4 relative bg-secondary/30">
+    <section id="skills" className="py-16 sm:py-24 px-3 sm:px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
-        <div className="text-center font-mono text-xs uppercase tracking-widest text-violet-700 dark:text-violet-400 font-bold mb-2">
+        <div className="text-center font-mono text-[11px] sm:text-xs uppercase tracking-widest text-violet-700 dark:text-violet-400 font-bold mb-2">
           // 03. TECHNICAL CAPABILITIES
         </div>
-        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight mb-3 text-center text-foreground">
+        <h2 className="text-xl sm:text-3xl font-semibold tracking-tight mb-3 text-center text-foreground">
           Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-400 dark:to-indigo-400">Arsenal</span>
         </h2>
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto text-sm sm:text-base font-normal leading-relaxed">
+        <p className="text-center text-muted-foreground mb-8 sm:mb-12 max-w-2xl mx-auto text-xs sm:text-base font-normal leading-relaxed">
           A blend of deep neural modeling, autonomous agent teams, and high-throughput production full-stack engineering.
         </p>
 
         {/* Category Filter Pills */}
-        <div className="flex flex-wrap justify-center gap-2.5 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-2.5 mb-8 sm:mb-12">
           {categories.map((cat) => {
             const Icon = cat.icon;
             const isActive = activeCategory === cat.id;
@@ -67,7 +67,7 @@ export const SkillsSection = () => {
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
                 className={cn(
-                  "inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 cursor-pointer border",
+                  "inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 cursor-pointer border",
                   isActive
                     ? "bg-primary text-primary-foreground border-primary shadow-md scale-105"
                     : "bg-card/70 text-muted-foreground hover:text-foreground border-border hover:border-primary/40 hover:bg-card"

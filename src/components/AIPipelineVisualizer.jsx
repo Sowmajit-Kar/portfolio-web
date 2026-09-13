@@ -104,18 +104,18 @@ export const AIPipelineVisualizer = () => {
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto rounded-3xl bg-card/85 backdrop-blur-xl border border-border/80 shadow-2xl overflow-hidden text-left mt-8">
+    <div className="w-full max-w-5xl mx-auto rounded-2xl sm:rounded-3xl bg-card/85 backdrop-blur-xl border border-border/80 shadow-2xl overflow-hidden text-left mt-6 sm:mt-8">
       {/* Top Header Dashboard Bar */}
-      <div className="px-6 py-4 border-b border-border/70 flex flex-wrap items-center justify-between gap-3 bg-secondary/40">
-        <div className="flex items-center gap-3">
-          <div className="flex space-x-1.5">
-            <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block" />
-            <span className="w-3 h-3 rounded-full bg-yellow-500/80 inline-block" />
-            <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block" />
+      <div className="px-3.5 sm:px-6 py-3 sm:py-4 border-b border-border/70 flex flex-wrap items-center justify-between gap-2.5 bg-secondary/40">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex space-x-1 sm:space-x-1.5">
+            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80 inline-block" />
+            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80 inline-block" />
+            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-500/80 inline-block" />
           </div>
-          <div className="h-4 w-px bg-border mx-1" />
-          <div className="flex items-center gap-2">
-            <Layers className="h-4 w-4 text-primary" />
+          <div className="h-4 w-px bg-border mx-0.5 sm:mx-1" />
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <Layers className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary" />
             <span className="text-xs sm:text-sm font-bold tracking-tight text-foreground">
               Live AI/ML Architecture Pipeline
             </span>
@@ -131,20 +131,20 @@ export const AIPipelineVisualizer = () => {
           onClick={runPipeline}
           disabled={isRunning}
           className={cn(
-            "inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer shadow-sm",
+            "inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold transition-all cursor-pointer shadow-xs",
             isRunning
               ? "bg-primary/20 text-primary border border-primary/30 cursor-not-allowed"
               : "bg-primary text-primary-foreground hover:scale-105 active:scale-95 hover:shadow-primary/30"
           )}
         >
-          <Play size={14} className={isRunning ? "animate-spin" : "fill-current"} />
+          <Play size={13} className={isRunning ? "animate-spin" : "fill-current"} />
           <span>{isRunning ? "Processing Stream..." : "Run Pipeline Batch"}</span>
         </button>
       </div>
 
       {/* Pipeline Node Flow Diagram */}
-      <div className="p-6">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 relative">
+      <div className="p-3.5 sm:p-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3 relative">
           {PIPELINE_NODES.map((node, index) => {
             const Icon = node.icon;
             const isSelected = selectedNode.id === node.id;
@@ -228,21 +228,21 @@ export const AIPipelineVisualizer = () => {
         )}
 
         {/* Live Terminal Telemetry Feed */}
-        <div className="mt-4 rounded-2xl bg-black/80 border border-zinc-800 p-4 font-mono text-xs overflow-hidden">
+        <div className="mt-4 rounded-xl sm:rounded-2xl bg-black/80 border border-zinc-800 p-3 sm:p-4 font-mono text-xs overflow-hidden">
           <div className="flex items-center justify-between pb-2 mb-2 border-b border-zinc-800 text-zinc-400">
             <div className="flex items-center gap-2">
               <Terminal size={14} className="text-emerald-400" />
-              <span className="font-semibold text-zinc-200">Real-Time Telemetry Stream</span>
+              <span className="font-semibold text-zinc-200 text-[11px] sm:text-xs">Real-Time Telemetry Stream</span>
             </div>
             <span className="text-[10px] text-zinc-500">Live Buffer</span>
           </div>
 
-          <div className="space-y-1.5 text-[11px]">
+          <div className="space-y-1.5 text-[11px] overflow-x-auto">
             {logs.map((log, idx) => (
               <div key={idx} className="flex items-start gap-2">
                 <span
                   className={cn(
-                    "px-1.5 py-0.2 rounded text-[10px] font-bold shrink-0",
+                    "px-1.5 py-0.2 rounded text-[9px] sm:text-[10px] font-bold shrink-0",
                     log.level === "INGEST" && "bg-cyan-900/60 text-cyan-300",
                     log.level === "VEC_DB" && "bg-emerald-900/60 text-emerald-300",
                     log.level === "AGENT" && "bg-purple-900/60 text-purple-300",
@@ -253,7 +253,7 @@ export const AIPipelineVisualizer = () => {
                 >
                   {log.level}
                 </span>
-                <span className="text-zinc-300 leading-relaxed">{log.text}</span>
+                <span className="text-zinc-300 leading-relaxed break-words min-w-0">{log.text}</span>
               </div>
             ))}
           </div>

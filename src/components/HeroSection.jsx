@@ -3,28 +3,29 @@ import { AIPipelineVisualizer } from "./AIPipelineVisualizer";
 
 export const HeroSection = ({ onNavigate }) => {
   return (
-    <section id="hero" className="relative min-h-[85vh] flex items-center justify-center px-4 pt-16 pb-16">
+    <section id="hero" className="relative min-h-[85vh] flex items-center justify-center px-3 sm:px-4 pt-8 sm:pt-16 pb-12 sm:pb-16">
       <div className="container max-w-5xl mx-auto text-center z-10">
         <div className="space-y-6">
           {/* Silicon Valley Lab Status Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900/5 dark:bg-zinc-900/80 border border-zinc-300/80 dark:border-zinc-800 text-xs font-mono text-zinc-700 dark:text-zinc-300 shadow-sm opacity-0 animate-fade-in">
-            <span className="relative flex h-2 w-2">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-zinc-900/5 dark:bg-zinc-900/80 border border-zinc-300/80 dark:border-zinc-800 text-[11px] sm:text-xs font-mono text-zinc-700 dark:text-zinc-300 shadow-sm opacity-0 animate-fade-in">
+            <span className="relative flex h-2 w-2 shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            <span className="tracking-wide">STATUS: ONLINE &bull; AVAILABLE FOR AI/ML &amp; FULL STACK ROLES</span>
+            <span className="tracking-wide hidden sm:inline">STATUS: ONLINE &bull; AVAILABLE FOR AI/ML &amp; FULL STACK ROLES</span>
+            <span className="tracking-wide sm:hidden">STATUS: ONLINE &bull; AI/ML ENGINEER</span>
           </div>
 
           {/* Main Title - Silicon Valley Laboratory Proportions */}
           <div className="space-y-2">
-            <div className="font-mono text-xs uppercase tracking-widest text-violet-700 dark:text-violet-400 font-bold opacity-0 animate-fade-in-delay-1">
+            <div className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-violet-700 dark:text-violet-400 font-bold opacity-0 animate-fade-in-delay-1">
               // APPLIED DEEP LEARNING &amp; DISTRIBUTED SYSTEMS
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
               <span className="block opacity-0 animate-fade-in-delay-1">
                 Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-indigo-600 to-purple-600 dark:from-violet-400 dark:to-indigo-400">Sowmajit</span> Kar
               </span>
-              <span className="block mt-2 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-violet-700 via-indigo-600 to-cyan-600 dark:from-cyan-400 dark:via-violet-400 dark:to-fuchsia-400 opacity-0 animate-fade-in-delay-2">
+              <span className="block mt-2 text-lg sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-violet-700 via-indigo-600 to-cyan-600 dark:from-cyan-400 dark:via-violet-400 dark:to-fuchsia-400 opacity-0 animate-fade-in-delay-2">
                 AI/ML + Full Stack Engineer
               </span>
             </h1>

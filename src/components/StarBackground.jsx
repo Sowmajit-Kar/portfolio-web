@@ -80,10 +80,11 @@ export const StarBackground = () => {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
+    const isMobile = width < 768;
     const mouse = {
       x: null,
       y: null,
-      radius: 170, // Magnetic radius
+      radius: isMobile ? 110 : 170, // Magnetic radius
     };
 
     const handleMouseMove = (e) => {
@@ -96,10 +97,33 @@ export const StarBackground = () => {
       mouse.y = null;
     };
 
+    const handleTouchStart = (e) => {
+      if (e.touches && e.touches.length > 0) {
+        mouse.x = e.touches[0].clientX;
+        mouse.y = e.touches[0].clientY;
+      }
+    };
+
+    const handleTouchMove = (e) => {
+      if (e.touches && e.touches.length > 0) {
+        mouse.x = e.touches[0].clientX;
+        mouse.y = e.touches[0].clientY;
+      }
+    };
+
+    const handleTouchEnd = () => {
+      mouse.x = null;
+      mouse.y = null;
+    };
+
     let nodes = [];
     const initNodes = () => {
       nodes = [];
-      const count = Math.min(125, Math.floor((width * height) / 12000));
+      const isNarrow = width < 768;
+      const divisor = isNarrow ? 18000 : 12000;
+      const maxNodes = isNarrow ? 55 : 125;
+      const count = Math.min(maxNodes, Math.max(25, Math.floor((width * height) / divisor)));
+      mouse.radius = isNarrow ? 110 : 170;
       for (let i = 0; i < count; i++) {
         nodes.push(new MagneticNode(width, height));
       }
@@ -113,6 +137,9 @@ export const StarBackground = () => {
 
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
     window.addEventListener("mouseleave", handleMouseLeave, { passive: true });
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
+    window.addEventListener("touchend", handleTouchEnd, { passive: true });
     window.addEventListener("resize", handleResize);
 
     initNodes();
@@ -185,6 +212,9 @@ export const StarBackground = () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseleave", handleMouseLeave);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchend", handleTouchEnd);
       window.removeEventListener("resize", handleResize);
     };
   }, []);
