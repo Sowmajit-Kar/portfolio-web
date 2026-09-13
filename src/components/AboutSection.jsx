@@ -1,8 +1,8 @@
 import { Brain, Cpu, Layers, Sparkles, Terminal, FileText } from "lucide-react";
 
-export const AboutSection = () => {
+export const AboutSection = ({ onNavigate }) => {
   return (
-    <section id="about" className="py-24 px-4 relative">
+    <section id="about" className="py-20 px-4 relative">
       <div className="container mx-auto max-w-5xl">
         <div className="text-center font-mono text-xs uppercase tracking-widest text-violet-700 dark:text-violet-400 font-bold mb-2">
           // 01. RESEARCH &amp; ARCHITECTURAL PROFILE
@@ -37,18 +37,16 @@ export const AboutSection = () => {
             </p>
 
             <div className="pt-2 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <a href="#contact" className="cosmic-button">
+              <button onClick={() => onNavigate?.("contact")} className="cosmic-button cursor-pointer">
                 Let's Collaborate
-              </a>
-              <a
-                href="https://github.com/Sowmajit-Kar"
-                target="_blank"
-                rel="noreferrer"
-                className="cosmic-button-outline"
+              </button>
+              <button
+                onClick={() => onNavigate?.("projects")}
+                className="cosmic-button-outline cursor-pointer"
               >
-                <Terminal size={16} />
-                View Repositories
-              </a>
+                <Layers size={16} />
+                Explore Projects Bento
+              </button>
             </div>
           </div>
 

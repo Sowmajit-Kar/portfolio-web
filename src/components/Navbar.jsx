@@ -3,14 +3,19 @@ import { useEffect, useState } from "react";
 import { Menu, X, Github, Terminal as TerminalIcon, Layout } from "lucide-react";
 
 const navItems = [
-  { name: "Home", href: "#hero" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  { id: "home", name: "Home" },
+  { id: "projects", name: "Projects" },
+  { id: "skills", name: "Skills" },
+  { id: "about", name: "About" },
+  { id: "contact", name: "Contact" },
 ];
 
-export const Navbar = ({ activeMode = "gui", onToggleMode }) => {
+export const Navbar = ({
+  activeMode = "gui",
+  onToggleMode,
+  activeTab = "home",
+  onSelectTab,
+}) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -28,13 +33,16 @@ export const Navbar = ({ activeMode = "gui", onToggleMode }) => {
       className={cn(
         "fixed top-0 w-full z-40 transition-all duration-300",
         isScrolled
-          ? "py-3 bg-background/80 backdrop-blur-md shadow-sm border-b border-border/60"
+          ? "py-3 bg-background/85 backdrop-blur-md shadow-sm border-b border-border/60"
           : "py-4 bg-transparent"
       )}
     >
       <div className="container flex items-center justify-between">
         {/* Brand */}
-        <a href="#hero" className="flex items-center gap-2 group">
+        <button
+          onClick={() => onSelectTab?.("home")}
+          className="flex items-center gap-2 group text-left cursor-pointer"
+        >
           <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
             <TerminalIcon size={18} />
           </div>
@@ -44,20 +52,25 @@ export const Navbar = ({ activeMode = "gui", onToggleMode }) => {
           <span className="hidden lg:inline-flex text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-primary/10 text-primary font-semibold border border-primary/20">
             AI/ML &amp; Full Stack
           </span>
-        </a>
+        </button>
 
         {/* Desktop Navigation & Mode Switcher */}
         <div className="hidden md:flex items-center space-x-3">
           {activeMode === "gui" && (
-            <div className="flex items-center space-x-1 lg:space-x-2 mr-2">
+            <div className="flex items-center space-x-1 lg:space-x-1.5 mr-2">
               {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="px-3 py-1.5 rounded-lg text-xs font-semibold text-muted-foreground hover:text-foreground hover:bg-secondary/70 transition-all"
+                <button
+                  key={item.id}
+                  onClick={() => onSelectTab?.(item.id)}
+                  className={cn(
+                    "px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer",
+                    activeTab === item.id
+                      ? "bg-primary text-primary-foreground shadow-sm shadow-primary/25"
+                      : "text-muted-foreground hover:text-foreground hover:bg-secondary/70"
+                  )}
                 >
                   {item.name}
-                </a>
+                </button>
               ))}
             </div>
           )}
@@ -152,17 +165,22 @@ export const Navbar = ({ activeMode = "gui", onToggleMode }) => {
         >
           <div className="flex flex-col items-center space-y-6">
             <div className="text-xs uppercase tracking-widest text-muted-foreground font-mono">
-              Navigation
+              Tab Views
             </div>
             {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-2xl font-bold text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+              <button
+                key={item.id}
+                className={cn(
+                  "text-2xl font-bold transition-colors cursor-pointer",
+                  activeTab === item.id ? "text-primary" : "text-foreground hover:text-primary"
+                )}
+                onClick={() => {
+                  onSelectTab?.(item.id);
+                  setIsMenuOpen(false);
+                }}
               >
                 {item.name}
-              </a>
+              </button>
             ))}
 
             <a

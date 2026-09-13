@@ -1,9 +1,9 @@
 import { ArrowDown, Github, Sparkles, Brain, Cpu, Globe } from "lucide-react";
 import { AIPipelineVisualizer } from "./AIPipelineVisualizer";
 
-export const HeroSection = () => {
+export const HeroSection = ({ onNavigate }) => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center px-4 pt-24 pb-16">
+    <section id="hero" className="relative min-h-[85vh] flex items-center justify-center px-4 pt-16 pb-16">
       <div className="container max-w-5xl mx-auto text-center z-10">
         <div className="space-y-6">
           {/* Silicon Valley Lab Status Badge */}
@@ -56,9 +56,12 @@ export const HeroSection = () => {
 
           {/* CTA Buttons - Premium SaaS / Lab Layout */}
           <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3.5 opacity-0 animate-fade-in-delay-4">
-            <a href="#projects" className="cosmic-button w-full sm:w-auto text-xs sm:text-sm font-semibold">
+            <button
+              onClick={() => onNavigate?.("projects")}
+              className="cosmic-button w-full sm:w-auto text-xs sm:text-sm font-semibold cursor-pointer"
+            >
               Explore Featured Projects
-            </a>
+            </button>
             <a
               href="https://github.com/Sowmajit-Kar"
               target="_blank"
@@ -68,9 +71,12 @@ export const HeroSection = () => {
               <Github size={16} />
               github.com/Sowmajit-Kar
             </a>
-            <a href="#contact" className="px-4 py-2.5 text-xs sm:text-sm font-mono text-zinc-600 dark:text-zinc-400 hover:text-foreground transition-colors">
+            <button
+              onClick={() => onNavigate?.("contact")}
+              className="px-4 py-2.5 text-xs sm:text-sm font-mono text-zinc-600 dark:text-zinc-400 hover:text-foreground transition-colors cursor-pointer"
+            >
               Contact / Inquiries &rarr;
-            </a>
+            </button>
           </div>
 
           {/* Live AI Pipeline Visualizer Component */}
@@ -79,16 +85,15 @@ export const HeroSection = () => {
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="pt-16 flex flex-col items-center">
-          <a
-            href="#about"
-            className="flex flex-col items-center text-xs text-muted-foreground hover:text-primary transition-colors animate-bounce"
-            aria-label="Scroll to About"
+        {/* Tab Switcher Quick Hint */}
+        <div className="pt-10 flex flex-col items-center">
+          <button
+            onClick={() => onNavigate?.("projects")}
+            className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-secondary/60 hover:bg-secondary border border-border text-xs font-mono text-muted-foreground hover:text-foreground transition-all cursor-pointer"
           >
-            <span className="mb-1">Scroll Down</span>
-            <ArrowDown className="h-4 w-4 text-primary" />
-          </a>
+            <span>Proceed to Projects Bento Grid</span>
+            <ArrowDown className="h-3.5 w-3.5 -rotate-90 text-primary" />
+          </button>
         </div>
       </div>
     </section>
