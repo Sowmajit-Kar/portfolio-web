@@ -1,79 +1,82 @@
-<!-- <<<<<<< HEAD
+# 🌌 Sowmajit Kar — AI/ML & Full Stack Engineer Portfolio
 
-# React + Vite
+A modern, high-performance developer portfolio showcasing real-world projects in **Deep Learning**, **Autonomous LLM Multi-Agent Systems**, **Computer Vision**, and **Full Stack Web Engineering**.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🌐 **Live Demo:** [https://portfolio-web-six-murex.vercel.app](https://portfolio-web-six-murex.vercel.app)  
+👤 **GitHub Profile:** [@Sowmajit-Kar](https://github.com/Sowmajit-Kar)
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-# If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-
-# portfolio-web -->
-
-# 🚀 My Portfolio Website
-
-A modern, responsive portfolio built with **React** and **Vite**, designed to showcase my projects, skills, and experience.
-
-![Portfolio Preview](https://via.placeholder.com/800x400?text=Your+Portfolio+Screenshot+Here)
+---
 
 ## 🛠 Tech Stack
 
-- **Framework:** [React 19](https://react.dev/)
-- **Build Tool:** [Vite](https://vitejs.dev/)
-- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-- **Icons:** [Lucide React](https://lucide.dev/)
-- **Animations:** [Framer Motion](https://www.framer.com/motion/) (Optional - if used)
-- **Deployment:** [Vercel / Netlify / GitHub Pages]
+- **Frontend & Core:** React 19, React Router v7, Vite 7
+- **Styling:** Tailwind CSS v4, Glassmorphism, CSS Custom Properties
+- **Interactive Motion:** GPU-accelerated HTML5 Canvas Neural Mesh (Cursor-reactive)
+- **Icons:** Lucide React
+- **Deployment:** Vercel
 
-## ✨ Features
+---
 
-- 📱 **Fully Responsive:** Optimized for mobile, tablet, and desktop views.
-- 🌓 **Dark Mode:** Supports dynamic theme switching.
-- 🚀 **Fast Performance:** Blazing fast load times thanks to Vite.
-- 📧 **Contact Form:** Integrated form for potential collaborations.
-- 📂 **Project Showcase:** Detailed cards for my latest work.
+## ✨ Flagship Showcases
 
-## 🚀 Getting Started
+1. **ChronoCloud**: AI-based optical flow frame interpolation for geostationary satellite telemetry (GOES/Himawari/INSAT) for storm and flood tracking.
+2. **CampusCart**: Full Stack student e-commerce & rental marketplace built with React, Node.js, Express, MongoDB, and college email verification.
+3. **ResearchMIND AI**: AI research assistant analyzing complex research PDFs to extract deep insights, flashcards, and Q&A using Gemini API and LLMs.
+4. **DeepFake Forensic Detection**: Deep CNN computer vision model detecting and classifying video manipulation artifacts.
+5. **Scriptoria Studio**: Autonomous multi-agent blog and research synthesis platform using CrewAI.
+6. **Job Aggregation Engine**: Dynamic job searching platform with Flask and web scraping pipelines.
 
-Follow these steps to set up the project locally on your machine.
+---
+
+## 🚀 Getting Started Locally
 
 ### Prerequisites
+- Node.js (v18 or higher recommended)
+- npm / pnpm / yarn
 
-Make sure you have [Node.js](https://nodejs.org/) installed (v18 or higher recommended).
+### Installation & Run
+```bash
+# 1. Clone the repository
+git clone https://github.com/Sowmajit-Kar/portfolio-web.git
 
-### Installation
+# 2. Navigate to project directory
+cd portfolio-web
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/YourUsername/your-repo-name.git](https://github.com/YourUsername/your-repo-name.git)
+# 3. Install dependencies
+npm install
+
+# 4. Start local development server
+npm run dev
 ```
-📁 Project Structure
-Plaintext
 
-├── public/          # Static assets (images, favicon)
+---
+
+## 📁 Project Structure
+
+```
+├── public/                # Static assets, demo project snapshots
 ├── src/
-│   ├── components/  # Reusable UI components (Navbar, Hero, Skills)
-│   ├── lib/         # Utility functions (cn, etc.)
-│   ├── assets/      # Local images and icons
-│   ├── App.jsx      # Main application entry
-│   └── main.jsx     # Vite entry point
-├── index.html       # HTML Template
-├── tailwind.config.js
-└── vite.config.js
-
+│   ├── assets/            # Project icons and graphics
+│   ├── components/        # Interactive modular UI components
+│   │   ├── Navbar.jsx         # Navigation bar with responsive mobile menu
+│   │   ├── HeroSection.jsx    # Cosmic AI/ML + Full Stack hero banner
+│   │   ├── AboutSection.jsx   # Profile narrative and key architectural pillars
+│   │   ├── SkillsSection.jsx  # Categorized technical skill matrix with filters
+│   │   ├── ProjectsSection.jsx# Authentic GitHub project showcase
+│   │   ├── ContactSection.jsx # Direct contact channels & interactive message form
+│   │   ├── Footer.jsx         # Copyright & quick links
+│   │   ├── StarBackground.jsx # 60 FPS interactive cursor-reactive neural canvas
+│   │   └── ThemeToggle.jsx    # Dark/Light theme switcher
+│   ├── lib/               # Utility functions (cn helper)
+│   ├── pages/             # Route views (Home, NotFound)
+│   ├── App.jsx            # Router provider
+│   ├── index.css          # Tailwind theme configurations & keyframe animations
+│   └── main.jsx           # App entry point
+├── index.html             # HTML template with SEO tags
+└── vite.config.js         # Vite bundler configuration
 ```
-#also a demo video is given how exactly it is done
-<div align="center">
-  <video src="D:\portfolio-project\public\projects\portfolio_recording.mp4" width="100%" controls muted autoplay loop>
-    Your browser does not support the video tag.
-  </video>
-</div>
+
+---
+
+## 📜 License
+MIT License &copy; Sowmajit Kar. All rights reserved.
